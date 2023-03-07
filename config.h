@@ -2,7 +2,7 @@
 
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int gappx     = 6;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
@@ -11,11 +11,11 @@ static const int vertpad            = 10;       /* vertical padding of bar */
 static const int sidepad            = 10;       /* horizontal padding of bar */
 static const char *fonts[]          = { "monospace:size=12", "fontawesome:size=12" };
 static const char dmenufont[]       = "monospace:size=11";
-static const char col_gray1[]       = "#231123";	/* background color */
+static const char col_gray1[]       = "#6F5E76";	/* background color */
 static const char col_gray2[]       = "#558C8C";	/* inactive window color */
 static const char col_gray3[]       = "#EFF7FF";	/* font color */
-static const char col_gray4[]       = "#eeeeee";	/* current tag and current window font color */
-static const char col_cyan[]        = "#FFDB58";	/* Top bar second color and active window border color */	
+static const char col_gray4[]       = "#A2C2C6";	/* current tag and current window font color */
+static const char col_cyan[]        = "#6F5E76";	/* Top bar second color and active window border color */	
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -31,7 +31,8 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Disocrd",  NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       9,       0,           -1 },
+	{ "Brave", 	  NULL,       NULL,       9,       		0,           -1 },
+	
 };
 
 /* layout(s) */
