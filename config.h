@@ -2,20 +2,20 @@
 
 
 /* appearance */
-static const unsigned int borderpx  = 3;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int gappx     = 6;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const int vertpad            = 10;       /* vertical padding of bar */
-static const int sidepad            = 10;       /* horizontal padding of bar */
+static const int vertpad            = 7;       /* vertical padding of bar */
+static const int sidepad            = 6;       /* horizontal padding of bar */
 static const char *fonts[]          = { "monospace:size=12", "fontawesome:size=12" };
 static const char dmenufont[]       = "monospace:size=11";
-static const char col_gray1[]       = "#6F5E76";	/* background color */
-static const char col_gray2[]       = "#558C8C";	/* inactive window color */
-static const char col_gray3[]       = "#EFF7FF";	/* font color */
-static const char col_gray4[]       = "#A2C2C6";	/* current tag and current window font color */
-static const char col_cyan[]        = "#6F5E76";	/* Top bar second color and active window border color */	
+static const char col_gray1[]       = "#1C1E26";	/* background color */
+static const char col_gray2[]       = "#1C1E26";	/* inactive window color */
+static const char col_gray3[]       = "#FFFFFF";	/* font color */
+static const char col_gray4[]       = "#F43E5C";	/* current tag and current window font color */
+static const char col_cyan[]        = "#31323A";	/* Top bar second color and active window border color */	
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -29,9 +29,10 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Disocrd",  NULL,       NULL,       0,            1,           -1 },
-	{ "Brave", 	  NULL,       NULL,       9,       		0,           -1 },
+	/* class			instance    title       tags mask     isfloating   monitor */
+	{ "disocrd",  		  NULL,       NULL,       8,            1,           -1 },
+	{ "brave-browser", 	  NULL,       NULL,       9,       		0,           -1 },
+	{ "Steam",			  NULL,		  NULL,		  7,			1,			 -1 },
 	
 };
 
@@ -39,7 +40,7 @@ static const Rule rules[] = {
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
-static const int lockfullscreen = 0; /* 1 will force focus on the fullscreen window */
+static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
