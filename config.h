@@ -15,11 +15,12 @@ static const char col_gray1[]       = "#1C1E26";	/* background color */
 static const char col_gray2[]       = "#1C1E26";	/* inactive window color */
 static const char col_gray3[]       = "#FFFFFF";	/* font color */
 static const char col_gray4[]       = "#F43E5C";	/* current tag and current window font color */
-static const char col_cyan[]        = "#31323A";	/* Top bar second color and active window border color */	
+static const char col_cyan[]        = "#1C1E26";	/* top bar second color */	
+static const char col_red[]			= "#F43E5C";	/* active window border color */
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeSel]  = { col_gray4, col_cyan,  col_red  },
 };
 /* tagging */
 static const char *tags[] = { "", "2", "3", "4", "5", "6", "7", "8", "" };
