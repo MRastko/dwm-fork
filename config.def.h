@@ -2,24 +2,30 @@
 
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int gappx     = 6;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
+static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
+static const unsigned int systrayonleft = 0;    /* 0: systray in the right corner, >0: systray on left of status text */
+static const unsigned int systrayspacing = 2;   /* systray spacing */
+static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
+static const int showsystray        = 1;        /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const int vertpad            = 10;       /* vertical padding of bar */
-static const int sidepad            = 10;       /* horizontal padding of bar */
+static const int vertpad            = 7;       /* vertical padding of bar */
+static const int sidepad            = 6;       /* horizontal padding of bar */
 static const char *fonts[]          = { "monospace:size=12", "fontawesome:size=12" };
 static const char dmenufont[]       = "monospace:size=11";
-static const char col_gray1[]       = "#231123";	/* background color */
-static const char col_gray2[]       = "#558C8C";	/* inactive window color */
-static const char col_gray3[]       = "#EFF7FF";	/* font color */
-static const char col_gray4[]       = "#eeeeee";	/* current tag and current window font color */
-static const char col_cyan[]        = "#FFDB58";	/* Top bar second color and active window border color */	
+static const char col_gray1[]       = "#1C1E26";	/* background color */
+static const char col_gray2[]       = "#1C1E26";	/* inactive window color */
+static const char col_gray3[]       = "#FFFFFF";	/* font color */
+static const char col_gray4[]       = "#F43E5C";	/* current tag and current window font color */
+static const char col_cyan[]        = "#1C1E26";	/* top bar second color */	
+static const char col_red[]			= "#F43E5C";	/* active window border color */
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeSel]  = { col_gray4, col_cyan,  col_red  },
 };
 /* tagging */
 static const char *tags[] = { "", "2", "3", "4", "5", "6", "7", "8", "" };
@@ -29,16 +35,18 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Disocrd",  NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       9,       0,           -1 },
+	/* class			instance    title       tags mask     isfloating   monitor */
+	{ "disocrd",  		  NULL,       NULL,       8,            1,           -1 },
+	{ "brave-browser", 	  NULL,       NULL,       9,       		0,           -1 },
+	{ "Steam",			  NULL,		  NULL,		  7,			1,			 -1 },
+	
 };
 
 /* layout(s) */
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
-static const int lockfullscreen = 0; /* 1 will force focus on the fullscreen window */
+static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
+static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -105,8 +113,8 @@ static const Key keys[] = {
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static const Button buttons[] = {
 	/* click                event mask      button          function        argument */
-	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
-	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
+	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
+	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
 	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
